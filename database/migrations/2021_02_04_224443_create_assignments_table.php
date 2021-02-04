@@ -15,10 +15,10 @@ class CreateAssignmentsTable extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
-            $table->text('body');
-            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
+            $table->text('body');
             $table->timestamp('due_date')->nullable();
+            $table->timestamp('completed_at')->nullable();
         });
     }
 

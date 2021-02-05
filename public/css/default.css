@@ -941,3 +941,7 @@ ul.contact li a.icon-rss:before
 {
 	float: right;
 }
+
+#header-wrapper {
+    background: #2b2b2b url(../images/banner.jpg) no-repeat center; background-size: auto 100%;
+}

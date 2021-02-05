@@ -17,11 +17,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () {
+    return view('about', [
+        'articles' => App\Models\Article::take(3)->get()
+    ]);
+});
+
+
+Route::get('/articles', 'App\Http\Controllers\ArticlesController@index');
+Route::post('/articles', 'App\Http\Controllers\ArticlesController@store');
+Route::get('/articles/create', 'App\Http\Controllers\ArticlesController@create');
+Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
+Route::get('/articles/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
+Route::put('/articles/{article}', 'App\Http\Controllers\ArticlesController@update');
+
+
 Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/test', 'App\Http\Controllers\TestController@test');
 
-Route::get('/posts/{post}', 'App\Http\Controllers\PostsController@show');
+// GET /articles
+// GET /articles/create
+// POST /articles
 
+// GET /articles/{id}
+// GET /articles/{id}/edit
+// PUT /articles/{id}
+
+// DElETE /articles/{id}
+
+
+// POST /videos/subscriptions => VideosSubscriptionsController@store

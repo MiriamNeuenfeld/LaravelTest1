@@ -22,7 +22,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 9,
+            'user_id' => User::factory()->count(1)->create(), // ???
             'title' => $this->faker->sentence,
             'excerpt' => $this->faker->sentence,
             'body' => $this->faker->paragraph

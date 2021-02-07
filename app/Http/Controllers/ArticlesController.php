@@ -23,12 +23,16 @@ class ArticlesController extends Controller
     }
 
     public function create() {
-        return view('articles.create', ['tags' => Tag::all()]);
+        return view('articles.create', [
+            'tags' => Tag::all()
+        ]);
     }
 
     public function store() {
-        $article = Article::create($this->validateArticle());
-        $article->user_id = 1;
+        $this->validateArticle();
+
+        $article = new Article(request(['title', 'excerpt', 'body']));
+        $article->user_id = 1; // auth()->id()
         $article->save();
 
         $article->tags()->attach(request('tags'));

@@ -57,7 +57,7 @@
         </div>
 
         <div class="field">
-            <label class="label" for="body">Tags</label>
+            <label class="label" for="tags">Tags</label>
 
             <div class="select is-multiple control">
                 <select name="tags[]" multiple>
